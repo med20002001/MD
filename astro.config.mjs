@@ -4,6 +4,7 @@ import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
   output: 'server',
+  adapter: netlify(),
   integrations: [react(), tailwind()],
   vite: {
     define: {
