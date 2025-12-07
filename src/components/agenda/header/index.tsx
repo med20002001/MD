@@ -1,4 +1,3 @@
-export { default as AgendaHeader } from './AgendaHeader';
-export { default as EventSearchBar } from './EventSearchBar';
-export { default as EventTabs } from './EventTabs';
-export { default as ViewHeaderNavigation } from './ViewHeaderNavigation';
+export { default as SearchBar } from './SearchBar';
+export { default as ViewToggle } from './ViewToggle';
+export { default as Navigation } from './Navigation';

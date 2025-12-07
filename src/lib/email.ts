@@ -109,24 +109,9 @@ MDN23 - Moroccan Diaspora Networking 23
             <p style="margin: 0 0 15px 0; line-height: 1.6;">
               Bonjour ${data.nom},
             </p>
-
             <p style="margin: 0 0 15px 0; line-height: 1.6;">
               Nous avons bien recu votre message concernant "${data.sujet}".
             </p>
-
-            <div style="margin: 20px 0;">
-              <strong>Votre message :</strong>
-              <div style="margin-top: 10px; padding: 15px; background-color: #f9f9f9; border: 1px solid #dddddd;">
-                <p style="margin: 0; white-space: pre-wrap; line-height: 1.5;">${data.message}</p>
-              </div>
-            </div>
-
-            <p style="margin: 20px 0 0 0; line-height: 1.6;">
-              Notre equipe vous repondra dans les plus brefs delais.
-            </p>
-
-            <hr style="margin: 30px 0; border: none; border-top: 1px solid #dddddd;">
-
             <p style="margin: 0 0 5px 0;">
               Cordialement,
             </p>

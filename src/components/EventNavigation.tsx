@@ -39,10 +39,6 @@ export default function EventNavigation({ currentSlug, allEvents }: Props) {
 
   return (
     <div className="border-t pt-6 mt-12">
-      <h3 className="text-sm font-semibold text-gray-700 mb-4 uppercase">
-        Navigation de l'événement
-      </h3>
-      
       <div className="flex justify-between items-center gap-4">
         {/* Événement précédent */}
         {prevEvent ? (

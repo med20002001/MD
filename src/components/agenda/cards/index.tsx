@@ -1,2 +1,2 @@
-export { default as DayCalendar } from './DayCalendar';
+export { default as EventCard } from './EventCard';
 export { default as DayEventCard } from './DayEventCard';

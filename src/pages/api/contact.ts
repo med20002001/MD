@@ -44,12 +44,6 @@ export const POST: APIRoute = async ({ request }) => {
     }
 
     const { nom, email, sujet, message } = validation.data;
-
-    // Log pour debug (optionnel)
-    console.log('📧 Tentative d\'envoi d\'email...');
-    console.log('De:', nom, '(' + email + ')');
-    console.log('Sujet:', sujet);
-
     // Envoyer les emails avec Nodemailer
     try {
       await sendContactEmails({ nom, email, sujet, message });
@@ -59,7 +53,7 @@ export const POST: APIRoute = async ({ request }) => {
       return new Response(
         JSON.stringify({ 
           success: true, 
-          message: '✓ Message envoyé avec succès! Un email de confirmation vous a été envoyé.'
+          message: 'Message envoyé avec succès! Un email de confirmation vous a été envoyé.'
         }),
         { 
           status: 200, 

@@ -1,16 +1,11 @@
-// Header
-export * from './header';
-
-// List
-export * from './list';
-
-// Month
-export * from './month';
-
-// Day
-export * from './day';
-// Shared
-export * from './shared';
-
-// Container
 export { default as AgendaContainer } from './AgendaContainer';
+
+// Export AgendaEvent au lieu de Event
+export type { AgendaEvent, ViewType, DayInfo } from './types';
+
+export { formatDate, getDaysInMonth, getEventsForDay, WEEK_DAYS, MONTHS } from './utils';
+export * from './header';
+export * from './shared';
+export * from './views';
+export * from './dropdowns';
+export * from './cards';
