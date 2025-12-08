@@ -14,7 +14,7 @@ export default function EventCard({ event }: EventCardProps) {
         <div className="flex-1">
           <div className="text-sm text-gray-600 mb-1">{event.datetime}</div>
           <h3 className="text-xl font-bold text-gray-900 mb-2">
-            <a href={event.href} className="hover:text-blue-600">
+            <a href={event.href} className="hover:text-red-600">
               {event.title}
             </a>
           </h3>

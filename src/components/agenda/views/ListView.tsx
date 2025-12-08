@@ -1,5 +1,5 @@
 import React from 'react';
-import type { AgendaEvent } from '../types';  // ✅ Corriger ici
+import type { AgendaEvent } from '../types';  
 import { EventCard } from '../cards';
 import { EmptyState, Button } from '../shared';
 

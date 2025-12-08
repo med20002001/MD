@@ -24,9 +24,8 @@ export default function EventCard({
   isPast = false,
 }: EventCardProps) {
   return (
-    <article className={`grid grid-cols-1 md:grid-cols-[80px_1fr_320px] gap-6 border-t border-gray-200 pt-8 ${
-      isPast ? 'opacity-75' : ''
-    }`}>
+    <article className={`grid grid-cols-1 md:grid-cols-[80px_1fr_320px] gap-6 border-t border-gray-200 pt-8 ${isPast ? 'opacity-75' : ''
+      }`}>
       {/* Date */}
       <div className="text-center md:text-left">
         <p className={`text-xs uppercase font-medium ${isPast ? 'text-gray-500' : 'text-blue-700'}`}>
@@ -35,12 +34,12 @@ export default function EventCard({
         <p className="text-3xl font-bold text-gray-900">{day}</p>
         <p className="text-xs text-gray-500">{year}</p>
       </div>
-      
+
       {/* Contenu */}
       <div>
         <p className="text-sm text-gray-500 mb-1">{datetime}</p>
-        <a 
-          href={href} 
+        <a
+          href={href}
           className="text-lg font-bold text-gray-900 hover:text-blue-700 block mb-2 transition-colors"
         >
           {title}
@@ -56,27 +55,18 @@ export default function EventCard({
           {description}
         </p>
       </div>
-      
+
       {/* Image */}
       <div className="hidden md:block">
         <a href={href} className="block">
-          {title === "Dia Internacional De La Dona" ? (
-            <div className="w-full max-w-sm mx-auto rounded overflow-hidden shadow-md hover:shadow-lg transition-shadow">
-              <img 
-                src={image} 
-                alt={title} 
-                className="w-full h-auto object-contain" 
-                loading="lazy" 
-              />
-            </div>
-          ) : (
-            <img 
-              src={image} 
-              alt={title} 
-              className="w-full h-44 object-cover rounded shadow-md hover:shadow-lg transition-shadow" 
-              loading="lazy" 
+          <div className="w-full max-w-sm mx-auto rounded overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+            <img
+              src={image}
+              alt={title}
+              className="w-full h-auto object-contain bg-gray-50"
+              loading="lazy"
             />
-          )}
+          </div>
         </a>
       </div>
     </article>

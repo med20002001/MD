@@ -3,7 +3,7 @@ title: "Équipe"
 description: "Découvrez les visages de notre Équipe, un ensemble dynamique de talents issus des divers horizons de la diaspora, unis par la passion commune de servir notre communauté."
 members:
   - name: "Nasrine KHELTENT"
-    role: "Vidéographe/Visual Art Producer – Chambre de l'Art et de la Culture"
+    role: "Videographer/Visual Art Producer – Chambre de l’Art et de la Culture"
     location: "Bruxelles – Belgique"
     image: "/images/team/nasrine.jpg"
   
@@ -12,7 +12,7 @@ members:
     location: "Lille – France"
     image: "/images/team/mounir.jpg"
   
-  - name: "najata CHAJAÏ"
+  - name: "Nabila CHAJAI"
     role: "Harpiste 2nd prix ARD de Munich – Freelance dans les grands orchestres européens"
     location: "Strasbourg – France"
     image: "/images/team/nabila.jpg"
@@ -22,7 +22,7 @@ members:
     location: "Amersfoort – Pays-Bas"
     image: "/images/team/hassan.jpg"
   
-  - name: "Salah Eddine EL MANKOUZI"
+  - name: "Salah Eddine EL MANOUZI"
     role: "Président de l'association Les deux Rives"
     location: "Amiens – France"
     image: "/images/team/salah.jpg"
@@ -32,28 +32,28 @@ members:
     location: "Paris – France"
     image: "/images/team/zineb.jpg"
   
-  - name: "Hasna SABBOUKI"
-    role: "PMO Project Manager – SAS Group / Docteure en Science Politique"
+  - name: "Hasna SARROUKH"
+    role: "PMO Project Manager – AMS Osram / Docteure en Sciences Physiques"
     location: "Berlin – Allemagne"
     image: "/images/team/hasna.jpg"
   
   - name: "Najat BENSAR"
-    role: "Producteur / Association Ibn Rochd"
-    location: "Barcelona – Espagne"
+    role: "Traductrice / Association Ibn Rochd"
+    location: "Barcelone – Espagne"
     image: "/images/team/najat.jpg"
   
-  - name: "Tahar LAZRAK (OUALLAS)"
-    role: "Humoriste"
-    location: "Abidjan – Côte d'Ivoire"
+  - name: "Tahar LAZRAK (OUALAS)"
+    role: "Humouriste"
+    location: "Abidjan – Côte d’Ivoire"
     image: "/images/team/tahar.jpg"
   
   - name: "Mouna KARIMI"
-    role: "Réalisatrice de documentaires / Docteure en Création et Architecture Cinématographique"
+    role: "Réalisatrice de documentaires / Docteure en Création et Recherche Cinématographique"
     location: "Marseille – France"
     image: "/images/team/mouna.jpg"
   
-  - name: "Abdelmadjid KHAIROUNI"
-    role: "Président du Centre Culturel Identique / Coach associatif"
+  - name: "Abdelmajid KHAIROUN"
+    role: "Président d’un Centre Culturel Islamique / Cadre associatif"
     location: "Utrecht – Pays-Bas"
     image: "/images/team/abdelmadjid.jpg"
   
@@ -68,7 +68,7 @@ members:
     image: "/images/team/Aicha.jpg"
   
   - name: "Saïd ASSOU"
-    role: "Chercheur en biologie – Université de Montpellie"
+    role: "Chercheur en biologie – Université de Montpellier"
     location: "Montpellier – France"
     image: "/images/team/Saïd.jpg"
   
