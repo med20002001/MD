@@ -1,5 +1,6 @@
 ---
 const currentPath = Astro.url.pathname;
+import '../styles/navbar.css';
 ---
 
 <header class="bg-white shadow-sm sticky top-0 z-50">
@@ -16,106 +17,76 @@ const currentPath = Astro.url.pathname;
         </a>
       </div>
 
-      <!-- Desktop Navigation -->
-      <div class="hidden lg:flex items-center space-x-8">
-        <!-- Organisation Dropdown -->
-        <div class="relative group">
-          <button class="flex items-center space-x-1 py-2 text-gray-700 hover:text-[#c0262d] transition-colors font-medium">
-            <span>Organisation</span>
-            <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-            </svg>
-          </button>
-          <div class="absolute left-0 mt-2 w-64 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 border border-gray-100">
-            <a href="/missions" class="block px-6 py-3 hover:bg-gray-50 transition-colors text-gray-700 hover:text-[#c0262d] border-b border-gray-100">
-              Mission
-            </a>
-            <a href="/equipe" class="block px-6 py-3 hover:bg-gray-50 transition-colors text-gray-700 hover:text-[#c0262d] border-b border-gray-100">
-              Équipe
-            </a>
-            <a href="/partenariats" class="block px-6 py-3 hover:bg-gray-50 transition-colors text-gray-700 hover:text-[#c0262d]">
-              Partenariats  (en construction)
-            </a>
-          </div>
-        </div>
+      <!-- Desktop Navigation with 3D Menu -->
+      <div class="flex-1 flex justify-end">
+        <ul class="menu hidden lg:flex items-center">
+          <!-- Organisation Dropdown -->
+          <li>
+            <a href="#" onclick="return false;">Organisation</a>
+            <ul class="submenu">
+              <li><a href="/missions">Mission</a></li>
+              <li><a href="/equipe">Équipe</a></li>
+              <li><a href="/partenariats">Partenariats</a></li>
+            </ul>
+          </li>
 
-        <!-- Actualités Dropdown -->
-        <div class="relative group">
-          <button class="flex items-center space-x-1 py-2 text-gray-700 hover:text-[#c0262d] transition-colors font-medium">
-            <span>Actualités</span>
-            <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-            </svg>
-          </button>
-          <div class="absolute left-0 mt-2 w-64 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 border border-gray-100">
-            <a href="/news" class="block px-6 py-3 hover:bg-gray-50 transition-colors text-gray-700 hover:text-[#c0262d] border-b border-gray-100">
-              News
-            </a>
-            <a href="/publications" class="block px-6 py-3 hover:bg-gray-50 transition-colors text-gray-700 hover:text-[#c0262d] border-b border-gray-100">
-              Publications
-            </a>
-            <a href="/projets" class="block px-6 py-3 hover:bg-gray-50 transition-colors text-gray-700 hover:text-[#c0262d] border-b border-gray-100">
-              Projets
-            </a>
-            <a href="/media" class="block px-6 py-3 hover:bg-gray-50 transition-colors text-gray-700 hover:text-[#c0262d]">
-              Média
-            </a>
-          </div>
-        </div>
+          <!-- Actualités Dropdown -->
+          <li>
+            <a href="#" onclick="return false;">Actualités</a>
+            <ul class="submenu">
+              <li><a href="/news">News</a></li>
+              <li><a href="/publications">Publications</a></li>
+              <li><a href="/projets">Projets</a></li>
+              <li><a href="/media">Média</a></li>
+            </ul>
+          </li>
 
-        <!-- Agenda -->
-        <a 
-          href="/agenda" 
-          class={`py-2 font-medium transition-colors ${
-            currentPath === '/agenda' 
-              ? 'text-[#c0262d]' 
-              : 'text-gray-700 hover:text-[#c0262d]'
-          }`}
-        >
-          Agenda
-        </a>
+          <!-- Agenda -->
+          <li>
+            <a 
+              href="/agenda"
+              class={currentPath === '/agenda' ? 'active' : ''}
+            >
+              Agenda
+            </a>
+          </li>
 
-        <!-- Initiatives -->
-        <a 
-          href="/initiatives" 
-          class={`py-2 font-medium transition-colors ${
-            currentPath === '/initiatives' 
-              ? 'text-[#c0262d]' 
-              : 'text-gray-700 hover:text-[#c0262d]'
-          }`}
-        >
-          Initiatives
-        </a>
+          <!-- Initiatives -->
+          <li>
+            <a 
+              href="/initiatives"
+              class={currentPath === '/initiatives' ? 'active' : ''}
+            >
+              Initiatives
+            </a>
+          </li>
 
-        <!-- Services -->
-        <a 
-          href="/services" 
-          class={`py-2 font-medium transition-colors ${
-            currentPath === '/services' 
-              ? 'text-[#c0262d]' 
-              : 'text-gray-700 hover:text-[#c0262d]'
-          }`}
-        >
-          Services
-        </a>
+          <!-- Services -->
+          <li>
+            <a 
+              href="/services"
+              class={currentPath === '/services' ? 'active' : ''}
+            >
+              Services
+            </a>
+          </li>
 
-        <!-- Contact -->
-        <a 
-          href="/contact" 
-          class={`py-2 font-medium transition-colors ${
-            currentPath === '/contact' 
-              ? 'text-[#c0262d]' 
-              : 'text-gray-700 hover:text-[#c0262d]'
-          }`}
-        >
-          Contact
-        </a>
+          <!-- Contact -->
+          <li>
+            <a 
+              href="/contact"
+              class={currentPath === '/contact' ? 'active' : ''}
+            >
+              Contact
+            </a>
+          </li>
+        </ul>
       </div>
 
       <!-- Mobile Menu Button -->
       <button 
         id="mobile-menu-btn" 
-        class="lg:hidden text-gray-700 focus:outline-none hover:text-[#c0262d] transition-colors"
+        class="lg:hidden text-gray-700 focus:outline-none hover:text-[#C4302B] transition-colors"
         aria-label="Menu"
       >
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -136,13 +107,13 @@ const currentPath = Astro.url.pathname;
             </svg>
           </summary>
           <div class="pl-8 mt-2 space-y-1">
-            <a href="/missions" class="block px-4 py-2 text-gray-600 hover:text-[#c0262d] hover:bg-gray-50 rounded-lg transition-colors">
+            <a href="/missions" class="block px-4 py-2 text-gray-600 hover:text-[#C4302B] hover:bg-gray-50 rounded-lg transition-colors">
               Mission
             </a>
-            <a href="/equipe" class="block px-4 py-2 text-gray-600 hover:text-[#c0262d] hover:bg-gray-50 rounded-lg transition-colors">
+            <a href="/equipe" class="block px-4 py-2 text-gray-600 hover:text-[#C4302B] hover:bg-gray-50 rounded-lg transition-colors">
               Équipe
             </a>
-            <a href="/partenariats" class="block px-4 py-2 text-gray-600 hover:text-[#c0262d] hover:bg-gray-50 rounded-lg transition-colors">
+            <a href="/partenariats" class="block px-4 py-2 text-gray-600 hover:text-[#C4302B] hover:bg-gray-50 rounded-lg transition-colors">
               Partenariats
             </a>
           </div>
@@ -157,32 +128,32 @@ const currentPath = Astro.url.pathname;
             </svg>
           </summary>
           <div class="pl-8 mt-2 space-y-1">
-            <a href="/news" class="block px-4 py-2 text-gray-600 hover:text-[#c0262d] hover:bg-gray-50 rounded-lg transition-colors">
+            <a href="/news" class="block px-4 py-2 text-gray-600 hover:text-[#C4302B] hover:bg-gray-50 rounded-lg transition-colors">
               News
             </a>
-            <a href="/publications" class="block px-4 py-2 text-gray-600 hover:text-[#c0262d] hover:bg-gray-50 rounded-lg transition-colors">
+            <a href="/publications" class="block px-4 py-2 text-gray-600 hover:text-[#C4302B] hover:bg-gray-50 rounded-lg transition-colors">
               Publications
             </a>
-            <a href="/projets" class="block px-4 py-2 text-gray-600 hover:text-[#c0262d] hover:bg-gray-50 rounded-lg transition-colors">
+            <a href="/projets" class="block px-4 py-2 text-gray-600 hover:text-[#C4302B] hover:bg-gray-50 rounded-lg transition-colors">
               Projets
             </a>
-            <a href="/media" class="block px-4 py-2 text-gray-600 hover:text-[#c0262d] hover:bg-gray-50 rounded-lg transition-colors">
+            <a href="/media" class="block px-4 py-2 text-gray-600 hover:text-[#C4302B] hover:bg-gray-50 rounded-lg transition-colors">
               Média
             </a>
           </div>
         </details>
 
         <!-- Other Menu Items Mobile -->
-        <a href="/agenda" class="block px-4 py-3 font-medium text-gray-700 hover:text-[#c0262d] hover:bg-gray-50 rounded-lg transition-colors">
+        <a href="/agenda" class="block px-4 py-3 font-medium text-gray-700 hover:text-[#C4302B] hover:bg-gray-50 rounded-lg transition-colors">
           Agenda
         </a>
-        <a href="/initiatives" class="block px-4 py-3 font-medium text-gray-700 hover:text-[#c0262d] hover:bg-gray-50 rounded-lg transition-colors">
+        <a href="/initiatives" class="block px-4 py-3 font-medium text-gray-700 hover:text-[#C4302B] hover:bg-gray-50 rounded-lg transition-colors">
           Initiatives
         </a>
-        <a href="/services" class="block px-4 py-3 font-medium text-gray-700 hover:text-[#c0262d] hover:bg-gray-50 rounded-lg transition-colors">
+        <a href="/services" class="block px-4 py-3 font-medium text-gray-700 hover:text-[#C4302B] hover:bg-gray-50 rounded-lg transition-colors">
           Services
         </a>
-        <a href="/contact" class="block px-4 py-3 font-medium text-gray-700 hover:text-[#c0262d] hover:bg-gray-50 rounded-lg transition-colors">
+        <a href="/contact" class="block px-4 py-3 font-medium text-gray-700 hover:text-[#C4302B] hover:bg-gray-50 rounded-lg transition-colors">
           Contact
         </a>
       </div>

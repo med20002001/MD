@@ -21,3 +21,29 @@
     @apply text-gray-700 leading-relaxed text-[15px] md:text-[16px] mb-4 tracking-wide;
   }
 }
+html.view-transition::view-transition-old(fade),
+html.view-transition::view-transition-new(fade) {
+  animation-duration: 0.4s;
+  animation-timing-function: ease-out;
+}
+
+::view-transition-old(fade) {
+  transform-origin: center;
+  animation: slideOut 0.4s ease-out both;
+}
+
+::view-transition-new(fade) {
+  transform-origin: center;
+  animation: slideIn 0.4s ease-out both;
+}
+
+@keyframes slideOut {
+  from { opacity: 1; transform: translateY(0); }
+  to   { opacity: 0; transform: translateY(10px); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+

@@ -5,12 +5,15 @@ import netlify from '@astrojs/netlify';
 
 export default defineConfig({
   output: 'server',
+ viewTransitions: true,
   adapter: netlify(),
   integrations: [react(), tailwind()],
     site: "https://mdn-association1.netlify.app",
+  
   vite: {
     define: {
       'process.env': {}
     }
   }
+ 
 });

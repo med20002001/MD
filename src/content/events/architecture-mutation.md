@@ -8,7 +8,11 @@ image: "/images/events/event2.jpg"
 month: "MAR"
 day: "14"
 year: "2024"
+organizerWebsite: "https://sfeir.com"
+venueWebsite: "https://www.meetup.com/fr-FR/sfeir-lille/events/299288851/"
 address: "74 Rue des Arts, 59800 Lille, France"
+Site : "https://www.meetup.com/fr-FR/sfeir-lille/events/299288851/"
+organizer: "Sfeir"
 ---
 
 # Détails

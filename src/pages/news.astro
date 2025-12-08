@@ -5,10 +5,9 @@ const article = {
   title: "Rencontre avec Nasrine Kheltent",
   date: "27 juillet 2023",
   image: "/images/team/nasrine.jpg",
-  href: "#", // plus tard: lien vers la page de détail
+  href: "/nasrine-kheltent", // Lien vers la page de détail
 };
 ---
-
 <Layout title="News">
   <main class="bg-white">
     <section class="max-w-6xl mx-auto px-4 lg:px-0 py-16">
@@ -20,16 +19,17 @@ const article = {
       <!-- Carte news principale -->
       <article class="bg-white shadow-sm border border-gray-200 rounded-lg overflow-hidden">
         <div class="grid grid-cols-1 md:grid-cols-2">
-          <!-- Colonne image -->
-          <div class="relative">
+          <!-- Colonne image cliquable -->
+          <a href={article.href} class="relative block group">
             <img
               src={article.image}
               alt={article.title}
-              class="w-full h-full object-cover"
+              class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
               loading="lazy"
             />
-          </div>
-
+            <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+          </a>
+          
           <!-- Colonne texte -->
           <div class="p-6 md:p-8">
             <p class="text-xs uppercase tracking-wide text-gray-500 mb-2">
@@ -38,19 +38,19 @@ const article = {
 
             <a
               href={article.href}
-              class="text-base md:text-lg font-semibold text-gray-900 underline underline-offset-2 decoration-gray-800 hover:text-black"
+              class="text-base md:text-lg font-semibold text-gray-900 underline underline-offset-2 decoration-gray-800 hover:text-[#C4302B] transition-colors"
             >
               {article.title}
             </a>
 
             <p class="mt-4 text-sm text-gray-700 leading-relaxed">
               Artiste belgo-marocaine, Nasrine tisse des liens entre les scènes
-              culturelles de son pays d’origine et de son pays d’accueil, à
+              culturelles de son pays d'origine et de son pays d'accueil, à
               travers des projets mêlant image, son et narration contemporaine.
             </p>
 
             <p class="mt-3 text-sm text-gray-700 leading-relaxed">
-              Ses créations explorent l’espace urbain, la mémoire et les
+              Ses créations explorent l'espace urbain, la mémoire et les
               identités multiples, en donnant une place centrale à la parole
               des personnes rencontrées sur le terrain.
             </p>

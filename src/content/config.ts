@@ -67,9 +67,31 @@ const events = defineCollection({
     googleMapsUrl: z.string().optional(),
   }),
 });
+const equipeCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    members: z.array(z.object({
+      name: z.string(),
+      role: z.string(),
+      location: z.string(),
+      image: z.string(),
+    })),
+  }),
+});
+const articlesCollection = defineCollection({
+  type: 'content',
+  schema: ({ image }) => z.object({
+    title: z.string(),
+    date: z.string(),
+    image: image(),
+    imageAlt: z.string(),
+  }),
+});
 
 export const collections = { 
   pages, 
   publications, 
-  events 
+  events ,
+  equipeCollection,
+  aarticles: articlesCollection
 };

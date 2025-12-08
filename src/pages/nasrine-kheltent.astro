@@ -1,83 +1,50 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { getEntry } from 'astro:content';
+import { Image } from 'astro:assets';
+
+const article = await getEntry('articles', 'nasrine-kheltent');
+
+if (!article) {
+  return Astro.redirect('/404');
+}
+
+const { title, date, image, imageAlt } = article.data;
+const { Content } = await article.render();
 ---
 
-<Layout title="Rencontre avec Nasrine Kheltent">
+
+<Layout title={title}>
   <section class="bg-[#f0f4f8] py-16">
     <div class="max-w-4xl mx-auto px-4 lg:px-8">
       <div class="bg-white rounded-lg shadow-sm p-10">
         <!-- Image principale centrée -->
         <div class="flex justify-center mb-8">
-          <img
-            src="/images/nasrine-kheltent-fh2.jpg"
-            alt="Nasrine Kheltent"
+          <Image
+            src={image}
+            alt={imageAlt}
+            width={256}
             class="w-64 h-auto object-cover"
             loading="lazy"
           />
         </div>
 
+
         <!-- Titre de l'article -->
         <h1 class="text-2xl font-bold text-gray-900 mb-2">
-          Rencontre avec Nasrine Kheltent
+          {title}
         </h1>
+
 
         <!-- Date de publication -->
         <p class="text-gray-600 text-sm mb-6">
-          27 Juillet, 2023
+          {date}
         </p>
 
+
         <!-- Contenu de l'article -->
-        <div class="text-gray-900 text-sm leading-relaxed space-y-4">
-          <p>
-            L’artiste belgo-marocaine, Nasrine Kheltent, œuvre à établir un lien interculturel entre son pays natal et son pays d’origine. Ses travaux sont essentiellement réalisés dans le champ de l’art vidéo. Elle s’ouvre à l’architecture pour donner sens à la contemporanéité de certaines mœurs. Elle dépiaute une armada de formes d’expression pour marquer de son estampille ses réalisations. Entretien.
-          </p>
-
-          <p class="font-bold">
-            Fh2mre : Quelles études supérieures avez-vous suivi ?
-          </p>
-
-          <p>
-            <span class="font-bold">Nasrine Kheltent :</span> Je suis diplômée d’un master en art dans l’espace public et d’une licence en arts chorégraphiques à l’Académie des Beaux-Arts de Bruxelles. Bien avant ces études, j’ai suivi une formation en gestion de production cinématographique à la Faculté Polydisciplinaire de Ouarzazate.
-          </p>
-
-          <p class="font-bold">
-            Fh2mre: Vous touchez aux arts plastiques, au cinéma et à la chorégraphie. Dans quelle discipline vous êtes le plus active ?
-          </p>
-
-          <p>
-            <span class="font-bold">Nasrine Kheltent :</span> Ma discipline artistique se caractérise par le fait qu’elle invoque des mediums plastiques et vivants. Je suis principalement active dans le domaine de l’art vidéo. Je collabore à divers projets cinématographiques dont un long-métrage documentaire portant sur l’une des œuvres majeures de l’architecte Victor Horta. Je suis par ailleurs curatrice d’exposition à titre indépendant et membre du CA de l’Association la chambre de l’art et de la culture euro-méditerranéenne depuis 2019.
-
-          <p class="font-bold">
-            Md me: Quelles thématiques traitez-vous dans vos réalisations ?
-          </p>
-
-          <p>
-            <span class="font-bold">Nasrine Kheltent :</span>  Les thématiques que j’aborde sont généralement liées au domaine de l’architecture à travers lequel je questionne la mémoire matérielle et immatérielle. Je m’intéresse à des lieux de mémoire, des lieux qui ont fait sens ou qui font encore sens pour un groupe de personnes, une communauté ou pour une nation. Dans mon travail plastique, je m’intéresse à un processus naturel appelé ‘paréidolie’. Il s’agit d’un effet de stimuli visuel et sonore qui amène à reconnaître des formes familières dans le paysage. Ce sont des formes naturelles qui rappellent une interprétation atemporelle à notre mémoire. Enfants, on a tous passé du temps à observer les nuages, on a tous eu, un jour, une discussion avec quelqu’un à propos de la forme d’un nuage et de ce qu’on y voyait.
-          </p>
-
-          <p class="font-bold">
-            Fh2mre: Qu’est-ce que vous exprimez à travers vos œuvres ?
-          </p>
-
-          <p>
-            <span class="font-bold">Nasrine Kheltent :</span> A travers mes œuvres on peut lire une recherche narrative. J’aborde différentes thématiques telles que l’entropie, le schème, la parallaxe, la répétition, l’équilibre. On peut dire que je m’intéresse à la construction et la déconstruction de nos relations interculturelles et plus personnellement à la reconstruction d’un lien entre ma culture belge et ma culture marocaine. Pour cela, j’ai participé à des manifestations et à des projets qui impliquent des artistes belges, européens, belgo-marocains et marocains. Pour moi, chaque étape d’un processus artistique est importante. De fait, j’exprime parfois un « work in progress » ou un court-métrage au cours duquel se tissent des liens interculturels. Pour ce faire, je me base sur l’héritage de mes deux cultures.
-          </p>
-
-          <p class="font-bold">
-            Fh2mre: Comment votre démarche artistique se définit-elle ?
-          </p>
-
-          <p>
-            <span class="font-bold">Nasrine Kheltent :</span> Ma pratique artistique multidisciplinaire s’inscrit dans une démarche artistique expérimentale. L’art est pour moi un prisme au travers lequel j’investi ma mémoire. Tantôt je crée un réseau visuel et sonore, tantôt je sollicite des traces du passé ou des traces produites par mes contemporains. Par exemple, mon exposition « La lumière sur… », donnait à voir l’histoire de l’astronomie depuis le 13ème siècle jusqu’à aujourd’hui en présentant multiples œuvres dont un traité d’astronomie arabe d’une valeur rare.
-          </p>
-
-          <p class="font-bold">
-            Fh2mre: Avez-vous participé à des activités culturelles au Maroc ?
-          </p>
-
-          <p>
-            <span class="font-bold">Nasrine Kheltent :</span> En 2018, j’ai participé à plusieurs manifestations artistiques au Maroc dont l’exposition ‘Master Mind’ à la galerie venise cadre de Casablanca. En 2019, j’ai exposé avec Young Marocan Artist à Londres ma réalisation vidéo « Schèmes Urbains ». J’ai été invitée en 2019 en tant qu’artiste au programme de résidence ‘Sakhra’ de l’artiste Gilles Aubry et Abd El jalil Saouli, à Mouley Bouchta à Fès. J’ai participé au Youmein Festival de performance à Tanger en présentant une œuvre personnelle (vidéo-performance) qui traitait de la situation du Grand Théâtre Cervantès de Tanger. Enfin, en 2022, j’avais commissionné à la chambre de l’Art une exposition et un colloque international sur la place de l’artiste dans l’activisme écologique, en invitant l’artiste Gilles Aubry et le biologiste Younes Boundir, ainsi que des sociologues, artistes, journalistes et spécialistes de la thématique, dont la plupart sont d’origine marocaine.
-          </p>
+        <div class="text-gray-900 text-sm leading-relaxed space-y-4 prose prose-sm max-w-none prose-p:my-4 prose-strong:font-bold prose-strong:text-gray-900">
+          <Content />
         </div>
       </div>
     </div>

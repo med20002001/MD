@@ -1,6 +1,7 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { ClientRouter } from "astro:transitions";
 interface Props {
   title: string;
   description?: string;
@@ -8,12 +9,24 @@ interface Props {
 
 const { title } = Astro.props;
 ---
-<html lang="fr">
+<html lang="fr" class="view-transition">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <title>{title}</title>
+    <ClientRouter/>
+    <style>
+  :root {
+    view-transition-name: fade;
+  }
+
+  ::view-transition-old(fade),
+  ::view-transition-new(fade) {
+    animation-duration: 0.35s;
+    animation-timing-function: ease-in-out;
+  }
+</style>
   </head>
   <body class="bg-gray-50 min-h-screen flex flex-col">
     <Header />
