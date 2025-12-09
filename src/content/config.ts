@@ -19,26 +19,19 @@ const pages = defineCollection({
     }),
 });
 
-const publications = defineCollection({
-  type: "content",
-  schema: ({ image }: SchemaContext) =>
-    z.object({
-      kind: z.enum(["post", "part"]).default("post"),
-      title: z.string(),
-      author: z.string().optional(),
-      publishedAt: z.date().optional(),
-      cover: image().optional(),
-      coverAlt: z.string().optional(),
-      topText: z.string().optional(),
-      bottomText: z.string().optional(),
-      leadTitle: z.string().optional(),
-      leadText: z.string().optional(),
-      excerpt: z.string().optional(),
-      parentSlug: z.string().optional(),
-      order: z.number().optional(),
-      inlineImage: image().optional(),
-      inlineImageAlt: z.string().optional(),
-    }),
+const publicationsCollection = defineCollection({
+  type: 'content',
+  schema: ({ image }) => z.object({
+    kind: z.literal("post"),
+    title: z.string(),
+    author: z.string().optional(),
+    publishedAt: z.date().optional(),
+    cover: image().optional(),
+    coverAlt: z.string().optional(),
+    leadTitle: z.string().optional(),
+    leadText: z.string().optional(),
+    excerpt: z.string().optional(),
+  }),
 });
 
 // Collection EVENTS avec tous les champs nécessaires
@@ -90,8 +83,8 @@ const articlesCollection = defineCollection({
 
 export const collections = { 
   pages, 
-  publications, 
   events ,
   equipeCollection,
-  aarticles: articlesCollection
+  aarticles: articlesCollection,
+   publications: publicationsCollection,
 };
