@@ -1,33 +1,35 @@
-import React from 'react';
-import type { ViewType } from '../types';
+import React from "react";
+import { Button } from "../../ui/button";
+import type { ViewType } from "../types";
 
 interface ViewToggleProps {
-  currentView: ViewType;
+  view: ViewType;
   onViewChange: (view: ViewType) => void;
 }
 
-const VIEWS: Array<{ label: string; value: ViewType }> = [
-  { label: 'Liste', value: 'liste' },
-  { label: 'Mois', value: 'mois' },
-  { label: 'Jour', value: 'jour' },
-];
+export default function ViewToggle({ view, onViewChange }: ViewToggleProps) {
+  const views: { value: ViewType; label: string }[] = [
+    { value: "liste", label: "Liste" },
+    { value: "mois", label: "Mois" },
+    { value: "jour", label: "Jour" },
+  ];
 
-export default function ViewToggle({ currentView, onViewChange }: ViewToggleProps) {
   return (
-    <>
-      {VIEWS.map((view) => (
-        <button
-          key={view.value}
-          onClick={() => onViewChange(view.value)}
-          className={`px-4 py-2 rounded-md font-medium ${
-            currentView === view.value 
-              ? 'bg-gray-900 text-white' 
-              : 'bg-white text-gray-700 border'
-          }`}
+    <div className="inline-flex rounded-lg border border-gray-200 bg-white p-1">
+      {views.map((v) => (
+        <Button
+          key={v.value}
+          variant={view === v.value ? "default" : "ghost"}
+          size="sm"
+          onClick={() => onViewChange(v.value)}
+          className={`
+            px-4 py-2
+            ${view === v.value ? "bg-black text-white" : "text-gray-700"}
+          `}
         >
-          {view.label}
-        </button>
+          {v.label}
+        </Button>
       ))}
-    </>
+    </div>
   );
 }

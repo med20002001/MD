@@ -1,8 +1,9 @@
 ---
 title: "Rencontre avec Nasrine Kheltent"
 date: "27 Juillet, 2023"
-image: "/images/team/nasrine.jpg"
+image: "../../assets/team/nasrine.jpg"
 imageAlt: "Nasrine Kheltent"
+description : "L'artiste belgo-marocaine, Nasrine Kheltent, œuvre à établir un lien interculturel entre son pays natal et son pays d'origine. Ses travaux sont essentiellement réalisés dans le champ de l'art vidéo. Elle s'ouvre à l'architecture pour donner sens à la contemporanéité de certaines mœurs. Elle dépiaute une armada de formes d'expression pour marquer de son estampille ses réalisations. Entretien."
 ---
 
 L'artiste belgo-marocaine, Nasrine Kheltent, œuvre à établir un lien interculturel entre son pays natal et son pays d'origine. Ses travaux sont essentiellement réalisés dans le champ de l'art vidéo. Elle s'ouvre à l'architecture pour donner sens à la contemporanéité de certaines mœurs. Elle dépiaute une armada de formes d'expression pour marquer de son estampille ses réalisations. Entretien.

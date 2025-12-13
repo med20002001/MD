@@ -1,6 +1,4 @@
 export { default as AgendaContainer } from './AgendaContainer';
-
-// Export AgendaEvent au lieu de Event
 export type { AgendaEvent, ViewType, DayInfo } from './types';
 
 export { formatDate, getDaysInMonth, getEventsForDay, WEEK_DAYS, MONTHS } from './utils';

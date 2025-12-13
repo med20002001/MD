@@ -1,7 +1,16 @@
-import React from 'react';
-import type { AgendaEvent } from '../types';  
-import { EventCard } from '../cards';
-import { EmptyState, Button } from '../shared';
+import React from "react";
+import type { AgendaEvent } from "../types";
+import { EventCard } from "../cards";
+import { EmptyState } from "../shared";
+
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardContent,
+} from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import { Button } from "@/components/ui/button";
 
 interface ListViewProps {
   upcomingEvents: AgendaEvent[];
@@ -16,52 +25,80 @@ export default function ListView({
   pastEvents,
   showAllEvents,
   showAllPastEvents,
-  onToggleAllPastEvents
+  onToggleAllPastEvents,
 }: ListViewProps) {
-  const displayedPastEvents = showAllPastEvents ? pastEvents : pastEvents.slice(0, 3);
-  
+  const displayedPastEvents = showAllPastEvents
+    ? pastEvents
+    : pastEvents.slice(0, 3);
+
   return (
-    <div>
-      {showAllEvents && pastEvents.length > 0 && (
-        <div className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Événements passés</h2>
-          {pastEvents.map((event, idx) => (
-            <EventCard key={idx} event={event} />
-          ))}
-        </div>
-      )}
+    <Card>
+      <CardHeader>
+        <CardTitle className="text-xl">
+          {showAllEvents ? "Tous les événements" : "Agenda"}
+        </CardTitle>
+      </CardHeader>
 
-      {upcomingEvents.length === 0 && !showAllEvents && (
-        <EmptyState />
-      )}
+      <Separator />
 
-      {upcomingEvents.length > 0 && (
-        <div className="mb-12">
-          {showAllEvents && <h2 className="text-2xl font-bold text-gray-900 mb-6">Événements à venir</h2>}
-          {upcomingEvents.map((event, idx) => (
-            <EventCard key={idx} event={event} />
-          ))}
-        </div>
-      )}
+      <CardContent className="space-y-10 pt-6">
+        {/* EMPTY STATE */}
+        {upcomingEvents.length === 0 && !showAllEvents && (
+          <EmptyState />
+        )}
 
-      {!showAllEvents && pastEvents.length > 0 && (
-        <div>
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Derniers Événements passés</h2>
-          {displayedPastEvents.map((event, idx) => (
-            <EventCard key={idx} event={event} />
-          ))}
-          
-          {pastEvents.length > 3 && !showAllPastEvents && (
-            <Button 
-              variant="secondary"
-              onClick={onToggleAllPastEvents}
-              className="mt-4"
-            >
-              Voir tous les événements passés ({pastEvents.length})
-            </Button>
-          )}
-        </div>
-      )}
-    </div>
+        {/* ÉVÉNEMENTS PASSÉS (MODE ALL) */}
+        {showAllEvents && pastEvents.length > 0 && (
+          <section className="space-y-4">
+            <h3 className="text-lg font-semibold text-muted-foreground">
+              Événements passés
+            </h3>
+
+            {pastEvents.map((event, idx) => (
+              <EventCard key={idx} event={event} />
+            ))}
+          </section>
+        )}
+
+        {/* ÉVÉNEMENTS À VENIR */}
+        {upcomingEvents.length > 0 && (
+          <section className="space-y-4">
+            {showAllEvents && (
+              <h3 className="text-lg font-semibold text-muted-foreground">
+                Événements à venir
+              </h3>
+            )}
+
+            {upcomingEvents.map((event, idx) => (
+              <EventCard key={idx} event={event} />
+            ))}
+          </section>
+        )}
+
+        {/* DERNIERS ÉVÉNEMENTS PASSÉS */}
+        {!showAllEvents && pastEvents.length > 0 && (
+          <section className="space-y-4">
+            <h3 className="text-lg font-semibold text-muted-foreground">
+              Derniers événements passés
+            </h3>
+
+            {displayedPastEvents.map((event, idx) => (
+              <EventCard key={idx} event={event} />
+            ))}
+
+            {pastEvents.length > 3 && !showAllPastEvents && (
+              <div className="pt-2">
+                <Button
+                  variant="secondary"
+                  onClick={onToggleAllPastEvents}
+                >
+                  Voir tous les événements passés ({pastEvents.length})
+                </Button>
+              </div>
+            )}
+          </section>
+        )}
+      </CardContent>
+    </Card>
   );
 }

@@ -8,7 +8,17 @@ export const formatDate = (date: Date): string => {
   });
 };
 
-export const getDaysInMonth = (date: Date): DayInfo[] => {
+// ✅ FONCTION HELPER AJOUTÉE
+function hasEventOnDate(date: Date, events: AgendaEvent[]): boolean {
+  const dateStr = date.toISOString().split('T')[0];
+  return events.some(event => {
+    const eventDateStr = new Date(event.date).toISOString().split('T')[0];
+    return eventDateStr === dateStr;
+  });
+}
+
+// ✅ MODIFIÉ - Ajout du paramètre events
+export const getDaysInMonth = (date: Date, events: AgendaEvent[] = []): DayInfo[] => {
   const year = date.getFullYear();
   const month = date.getMonth();
   const firstDay = new Date(year, month, 1);
@@ -21,27 +31,33 @@ export const getDaysInMonth = (date: Date): DayInfo[] => {
   
   const prevMonthLastDay = new Date(year, month, 0).getDate();
   for (let i = adjustedStart - 1; i >= 0; i--) {
+    const dayDate = new Date(year, month - 1, prevMonthLastDay - i);
     days.push({
       day: prevMonthLastDay - i,
       isCurrentMonth: false,
-      date: new Date(year, month - 1, prevMonthLastDay - i)
+      date: dayDate,
+      hasEvent: hasEventOnDate(dayDate, events) // ✅ AJOUTÉ
     });
   }
   
   for (let i = 1; i <= daysInMonth; i++) {
+    const dayDate = new Date(year, month, i);
     days.push({
       day: i,
       isCurrentMonth: true,
-      date: new Date(year, month, i)
+      date: dayDate,
+      hasEvent: hasEventOnDate(dayDate, events) // ✅ AJOUTÉ
     });
   }
   
   const remainingDays = 42 - days.length;
   for (let i = 1; i <= remainingDays; i++) {
+    const dayDate = new Date(year, month + 1, i);
     days.push({
       day: i,
       isCurrentMonth: false,
-      date: new Date(year, month + 1, i)
+      date: dayDate,
+      hasEvent: hasEventOnDate(dayDate, events) // ✅ AJOUTÉ
     });
   }
   

@@ -1,6 +1,12 @@
-import React from 'react';
-import type { AgendaEvent } from '../types';
-import { EventDate } from '../shared';
+import React from "react";
+import type { AgendaEvent } from "../types";
+import { EventDate } from "../shared";
+
+import {
+  Card,
+  CardContent,
+} from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
 
 interface EventCardProps {
   event: AgendaEvent;
@@ -8,29 +14,58 @@ interface EventCardProps {
 
 export default function EventCard({ event }: EventCardProps) {
   return (
-    <div className="mb-6 border-b pb-6">
-      <div className="flex gap-6">
-        <EventDate month={event.month} day={event.day} year={event.year} />
-        <div className="flex-1">
-          <div className="text-sm text-gray-600 mb-1">{event.datetime}</div>
-          <h3 className="text-xl font-bold text-gray-900 mb-2">
-            <a href={event.href} className="hover:text-red-600">
-              {event.title}
-            </a>
-          </h3>
-          <div className="text-sm text-gray-700 mb-2">{event.location}</div>
-          <p className="text-gray-600">{event.description}</p>
-        </div>
-        {event.image && (
-          <div className="flex-shrink-0 w-48 h-32">
-            <img
-              src={event.image}
-              alt={event.title}
-              className="w-full h-full object-cover rounded"
-            />
+    <Card className="mb-6">
+      <CardContent className="pt-6">
+        <div className="flex gap-6">
+          {/* DATE */}
+          <EventDate
+            month={event.month}
+            day={event.day}
+            year={event.year}
+          />
+
+          {/* CONTENU */}
+          <div className="flex-1 space-y-2">
+            <div className="text-sm text-muted-foreground">
+              {event.datetime}
+            </div>
+
+            <h3 className="text-xl font-semibold leading-snug">
+              <a
+                href={event.href}
+                className="hover:text-primary hover:underline"
+              >
+                {event.title}
+              </a>
+            </h3>
+
+            {event.location && (
+              <div className="text-sm text-muted-foreground">
+                {event.location}
+              </div>
+            )}
+
+            {event.description && (
+              <p className="text-sm text-foreground">
+                {event.description}
+              </p>
+            )}
           </div>
-        )}
-      </div>
-    </div>
+
+          {/* IMAGE */}
+          {event.image && (
+            <div className="flex-shrink-0 w-48">
+              <img
+                src={event.image}
+                alt={event.title}
+                className="h-32 w-full rounded-md object-cover"
+              />
+            </div>
+          )}
+        </div>
+
+        <Separator className="mt-6" />
+      </CardContent>
+    </Card>
   );
 }

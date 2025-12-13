@@ -1,6 +1,6 @@
 import { defineCollection, z, type SchemaContext } from "astro:content";
 
-const pages = defineCollection({
+const mission = defineCollection({
   type: "content",
   schema: ({ image }: SchemaContext) =>
     z.object({
@@ -47,7 +47,6 @@ const events = defineCollection({
     month: z.string(),
     day: z.string(),
     year: z.string(),
-    // ⭐ NOUVEAUX CHAMPS
     organizer: z.string().optional(),
     organizerEmail: z.string().optional(),
     organizerWebsite: z.string().optional(),
@@ -62,15 +61,18 @@ const events = defineCollection({
 });
 const equipeCollection = defineCollection({
   type: 'content',
-  schema: z.object({
+  schema: ({ image }) => z.object({
+    title: z.string(),
+    description: z.string(),
     members: z.array(z.object({
       name: z.string(),
       role: z.string(),
       location: z.string(),
-      image: z.string(),
+      image: image(), 
     })),
   }),
 });
+
 const articlesCollection = defineCollection({
   type: 'content',
   schema: ({ image }) => z.object({
@@ -78,13 +80,24 @@ const articlesCollection = defineCollection({
     date: z.string(),
     image: image(),
     imageAlt: z.string(),
+    description : z.string(),
+  }),
+});
+const contactCollection = defineCollection({
+  type: 'content',
+  schema: ({ image }) => z.object({
+    title: z.string(),
+    description: z.string(),
+    image: image(),
+    imageAlt: z.string(),
   }),
 });
 
 export const collections = { 
-  pages, 
-  events ,
-  equipeCollection,
-  aarticles: articlesCollection,
-   publications: publicationsCollection,
+  mission, 
+  events,
+  'equipe': equipeCollection,
+  articles: articlesCollection,
+  publications: publicationsCollection,
+  'contact': contactCollection,
 };

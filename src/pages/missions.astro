@@ -1,10 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import MissionSection from "../components/MissionSection.astro";
+import MissionSection from "../components/mission/MissionSection.astro";
 import { getEntryBySlug, type CollectionEntry } from "astro:content";
 
-const entry = await getEntryBySlug("pages", "mission");
-if (!entry) throw new Error("Contenu introuvable: src/content/pages/mission.md");
+const entry = await getEntryBySlug("mission", "mission");
+if (!entry) throw new Error("Contenu introuvable: src/content/mission/mission.md");
 
 type PageEntry = CollectionEntry<"pages">;
 type Section = PageEntry["data"]["sections"][number];

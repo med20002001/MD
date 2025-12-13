@@ -1,8 +1,17 @@
-import React from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
-import type { AgendaEvent } from '../types';
-import { EmptyState, SubscribeButton } from '../shared';
-import { DayEventCard } from '../cards';
+import React from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import type { AgendaEvent } from "../types";
+import { EmptyState, SubscribeButton } from "../shared";
+import { DayEventCard } from "../cards";
+
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardContent,
+} from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import { Button } from "@/components/ui/button";
 
 interface DayViewProps {
   selectedDate: Date;
@@ -11,46 +20,65 @@ interface DayViewProps {
   onNextDay: () => void;
 }
 
-export default function DayView({ 
-  selectedDate, 
-  dayEvents, 
-  onPreviousDay, 
-  onNextDay 
+export default function DayView({
+  selectedDate,
+  dayEvents,
+  onPreviousDay,
+  onNextDay,
 }: DayViewProps) {
   return (
-    <div>
-      {/* Message vide */}
-      {dayEvents.length === 0 && <EmptyState />}
+    <Card>
+      <CardHeader>
+        <div className="flex items-center justify-between">
+          <Button
+            variant="outline"
+            onClick={onPreviousDay}
+            className="gap-2"
+          >
+            <ChevronLeft className="h-4 w-4" />
+            Jour précédent
+          </Button>
 
-      {/* Boutons de navigation */}
-      <div className="flex justify-between items-center mb-6">
-        <button
-          onClick={onPreviousDay}
-          className="px-4 py-2 text-gray-600 hover:text-gray-900 flex items-center gap-2 border border-gray-300 rounded hover:bg-gray-50"
-        >
-          <ChevronLeft className="w-4 h-4" />
-          Jour précédent
-        </button>
-        <button
-          onClick={onNextDay}
-          className="px-4 py-2 text-gray-600 hover:text-gray-900 flex items-center gap-2 border border-gray-300 rounded hover:bg-gray-50"
-        >
-          Jour suivant
-          <ChevronRight className="w-4 h-4" />
-        </button>
-      </div>
+          <CardTitle className="text-lg">
+            {selectedDate.toLocaleDateString("fr-FR", {
+              weekday: "long",
+              day: "numeric",
+              month: "long",
+              year: "numeric",
+            })}
+          </CardTitle>
 
-      {/* Liste des événements */}
-      {dayEvents.length > 0 && (
-        <div className="space-y-6 mb-8">
-          {dayEvents.map((event, idx) => (
-            <DayEventCard key={idx} event={event} />
-          ))}
+          <Button
+            variant="outline"
+            onClick={onNextDay}
+            className="gap-2"
+          >
+            Jour suivant
+            <ChevronRight className="h-4 w-4" />
+          </Button>
         </div>
-      )}
+      </CardHeader>
 
-      {/* ✅ Utiliser le composant réutilisable */}
-      <SubscribeButton />
-    </div>
+      <Separator />
+
+      <CardContent className="pt-6 space-y-8">
+        {/* EMPTY STATE */}
+        {dayEvents.length === 0 && <EmptyState />}
+
+        {/* LISTE DES ÉVÉNEMENTS */}
+        {dayEvents.length > 0 && (
+          <div className="space-y-6">
+            {dayEvents.map((event, idx) => (
+              <DayEventCard key={idx} event={event} />
+            ))}
+          </div>
+        )}
+
+        {/* SUBSCRIBE */}
+        <div className="pt-4">
+          <SubscribeButton />
+        </div>
+      </CardContent>
+    </Card>
   );
 }

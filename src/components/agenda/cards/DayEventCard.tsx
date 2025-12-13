@@ -1,5 +1,12 @@
-import React from 'react';
-import type { AgendaEvent } from '../types';
+import React from "react";
+import type { AgendaEvent } from "../types";
+
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardContent,
+} from "@/components/ui/card";
 
 interface DayEventCardProps {
   event: AgendaEvent;
@@ -7,15 +14,35 @@ interface DayEventCardProps {
 
 export default function DayEventCard({ event }: DayEventCardProps) {
   return (
-    <div className="bg-white rounded-lg border p-6">
-      <div className="text-sm text-gray-600 mb-2">{event.datetime}</div>
-      <h3 className="text-2xl font-bold text-gray-900 mb-2">
-        <a href={event.href} className="hover:text-blue-600">
-          {event.title}
-        </a>
-      </h3>
-      <div className="text-gray-700 mb-2">{event.location}</div>
-      <p className="text-gray-600">{event.description}</p>
-    </div>
+    <Card>
+      <CardHeader className="pb-3">
+        <div className="text-sm text-muted-foreground">
+          {event.datetime}
+        </div>
+
+        <CardTitle className="text-xl leading-snug">
+          <a
+            href={event.href}
+            className="hover:underline hover:text-primary"
+          >
+            {event.title}
+          </a>
+        </CardTitle>
+      </CardHeader>
+
+      <CardContent className="space-y-2">
+        {event.location && (
+          <div className="text-sm text-muted-foreground">
+            📍 {event.location}
+          </div>
+        )}
+
+        {event.description && (
+          <p className="text-sm text-foreground">
+            {event.description}
+          </p>
+        )}
+      </CardContent>
+    </Card>
   );
 }

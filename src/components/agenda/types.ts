@@ -1,21 +1,29 @@
-// Renommer Event en AgendaEvent pour éviter le conflit avec DOM Event
+export type ViewType = 'liste' | 'mois' | 'jour';
+
 export interface AgendaEvent {
+  id: string;
   title: string;
-  date: string;
+  date: Date;
   datetime: string;
   location?: string;
-  description: string;
-  href: string;
+  description?: string;
+  slug?: string;
   image?: string;
-  month: string;
-  day: string;
-  year: string;
+  organizer?: string;
+  organizerEmail?: string;
+  organizerWebsite?: string;
+  venueWebsite?: string;
+  address?: string;
+  city?: string;
+  postalCode?: string;
+  country?: string;
+  phone?: string;
+  googleMapsUrl?: string;
 }
-
-export type ViewType = 'liste' | 'mois' | 'jour';
 
 export interface DayInfo {
   day: number;
   isCurrentMonth: boolean;
   date: Date;
+  hasEvent: boolean; // ✅ AJOUTÉ
 }

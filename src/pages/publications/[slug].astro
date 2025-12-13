@@ -1,7 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import PageShell from "../../components/ui/PageShell.astro";
-import Card from "../../components/ui/Card.astro";
+import PageShell from "../../components/publications/PageShell.astro";
+import Card from "../../components/publications/Card.tsx";
 import { getCollection, getEntryBySlug, type CollectionEntry } from "astro:content";
 import { Image } from "astro:assets";
 
@@ -18,7 +18,7 @@ if (!slug) throw new Error("Slug manquant dans l'URL.");
 
 const post = await getEntryBySlug("publications", slug);
 if (!post) {
-  return new Response("Not found", { status: 404 });
+  return Astro.redirect("/404");
 }
 
 const { Content } = await post.render();
@@ -32,7 +32,7 @@ const nl2br = (s: string) => s.replace(/\n/g, "<br/>");
 
 <Layout title={post.data.title}>
   <PageShell>
-    <Card class="p-8 md:p-10">
+    <Card className="p-8 md:p-10">
       <h1 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
         {post.data.title}
       </h1>

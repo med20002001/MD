@@ -22,7 +22,7 @@ Otherwise, why be interested in the subject of Oral Culture? Let's take a few re
 
 The desire to understand the specificities of such a culture, its advantages and drawbacks and its impact on the performance of a company, pushes me to share this with you.
 
-## Some key figures to start
+#### Some key figures to start
 
 French employees attach great importance to oral communication. A study, conducted by Occurrence and published by Mediameeting, exploring employees' expectations regarding oral communication, highlights the perceived strengths of orality within companies as well as the opportunities it offers to these last.
 
@@ -36,7 +36,7 @@ Oral communication in business can bring many benefits, but it also requires car
 
 So while Oral culture can improve collaboration and creativity, it is crucial to find a balance with other forms of communication.
 
-## Oral culture is so present in our companies. What are the reasons explaining this?
+#### Oral culture is so present in our companies. What are the reasons explaining this?
 
 Fostering open oral communication within an organization has many benefits, including:
 
@@ -55,7 +55,7 @@ In addition, Oral communication benefits from the contribution of agile methodol
 
 AI is improving this communication. Features like machine translation, meeting transcription, and sentiment analysis can help facilitate communication between multicultural teams.
 
-## Yes, but it doesn’t only have advantages
+#### Yes, but it doesn’t only have advantages
 Oral communication requires encounters between individuals (physical or virtual). These meetings can be planned or spontaneous.
 
 In a business where employees operate in a distributed organization, scheduled meetings can be a significant waste of time. While these can be helpful, when they are automatically used, they inadvertently create a fragmented team schedule.
@@ -69,7 +69,7 @@ Documentation is strongly impacted by the way it communicates and shares informa
 * **Limiting the scope:** Oral communication is generally limited by the number of people present when the information is transmitted. This can make it difficult to effectively disseminate knowledge to large numbers of people or remote teams.
 * **Dependence on human memory:** Oral communication relies on the ability of individuals to remember the information exchanged. However, human memory is prone to forgetting and distortion, which can compromise the reliability of shared information.
 * **Language and cultural barriers:** Linguistic and cultural differences between members of an organization can lead to misunderstandings during oral communication. This can make accurate documentation and transmission of information difficult in a multicultural context.
-## And for optimal balance
+### And for optimal balance
 By combining Oral and Written communication wisely, we can create a more effective work environment, where information is shared clearly, errors are reduced and collaboration is fostered.
 
 Verbal discussions can be followed by written documentation that summarizes key points, reducing the risk of misunderstandings or forgetting.
@@ -82,7 +82,7 @@ Writing remains very important, particularly in our IT organizations. Documentat
 * Standardization of practices to guarantee consistency in company processes.
 * Formalization of architectural decisions to explain the context, the problem to be solved, the possible options, the choice and its impacts.
 
-## References :
+#### References :
 
 - [https://occurrence.fr/newsletter/wp-content/uploads/2021/02/CP_etude-Occurrence-Mediameeting-janvier-2021.pdf](https://occurrence.fr/newsletter/wp-content/uploads/2021/02/CP_etude-Occurrence-Mediameeting-janvier-2021.pdf)
 - [https://edokumassoupwith.wordpress.com/2022/03/05/pourquoi-la-culture-de-lecrit-doit-prendre-le-pas-sur-loral-dans-votre-startup/](https://edokumassoupwith.wordpress.com/2022/03/05/pourquoi-la-culture-de-lecrit-doit-prendre-le-pas-sur-loral-dans-votre-startup/)

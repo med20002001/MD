@@ -1,62 +1,63 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import { Image } from 'astro:assets';
 
-const article = {
-  title: "Rencontre avec Nasrine Kheltent",
-  date: "27 juillet 2023",
-  image: "/images/team/nasrine.jpg",
-  href: "/nasrine-kheltent", // Lien vers la page de détail
-};
+const articles = await getCollection('articles');
+const sortedArticles = articles.sort((a: CollectionEntry<'articles'>, b: CollectionEntry<'articles'>) => 
+  new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
 ---
+
 <Layout title="News">
   <main class="bg-white">
     <section class="max-w-6xl mx-auto px-4 lg:px-0 py-16">
-      <!-- Titre section -->
       <h1 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
         News
       </h1>
+      
+      <div class="space-y-8">
+        {sortedArticles.map((article: CollectionEntry<'articles'>) => (
+          <div class="article-wrapper">
+            <article class="bg-white shadow-sm border border-gray-200 rounded-lg article-overflow">
+              <div class="grid grid-cols-1 md:grid-cols-2">
+                
+                <a href={`/news/${article.slug}`} class="image-3d-box relative block">
+                  <div class="image-bg">
+                    <Image
+                      src={article.data.image}
+                      alt={article.data.imageAlt}
+                      class="w-full h-full object-cover"
+                      loading="lazy"
+                      width={800}
+                      height={600}
+                    />
+                  </div>
+                  <div class="character"></div>
+                </a>
+                
+                <div class="p-6 md:p-8">
+                  <p class="text-xs uppercase tracking-wide text-gray-500 mb-2">
+                    Publié le {article.data.date}
+                  </p>
 
-      <!-- Carte news principale -->
-      <article class="bg-white shadow-sm border border-gray-200 rounded-lg overflow-hidden">
-        <div class="grid grid-cols-1 md:grid-cols-2">
-          <!-- Colonne image cliquable -->
-          <a href={article.href} class="relative block group">
-            <img
-              src={article.image}
-              alt={article.title}
-              class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-              loading="lazy"
-            />
-            <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
-          </a>
-          
-          <!-- Colonne texte -->
-          <div class="p-6 md:p-8">
-            <p class="text-xs uppercase tracking-wide text-gray-500 mb-2">
-              Publié le {article.date}
-            </p>
+                  <a
+                    href={`/news/${article.slug}`}
+                    class="text-base md:text-lg font-semibold text-gray-900 underline underline-offset-2 decoration-gray-800 hover:text-[#080808] transition-colors"
+                  >
+                    {article.data.title}
+                  </a>
 
-            <a
-              href={article.href}
-              class="text-base md:text-lg font-semibold text-gray-900 underline underline-offset-2 decoration-gray-800 hover:text-[#C4302B] transition-colors"
-            >
-              {article.title}
-            </a>
-
-            <p class="mt-4 text-sm text-gray-700 leading-relaxed">
-              Artiste belgo-marocaine, Nasrine tisse des liens entre les scènes
-              culturelles de son pays d'origine et de son pays d'accueil, à
-              travers des projets mêlant image, son et narration contemporaine.
-            </p>
-
-            <p class="mt-3 text-sm text-gray-700 leading-relaxed">
-              Ses créations explorent l'espace urbain, la mémoire et les
-              identités multiples, en donnant une place centrale à la parole
-              des personnes rencontrées sur le terrain.
-            </p>
+                  <p class="mt-4 text-sm text-gray-700 leading-relaxed">
+                    {article.data.description}
+                  </p>
+                </div>
+              </div>
+            </article>
           </div>
-        </div>
-      </article>
+        ))}
+      </div>
     </section>
   </main>
 </Layout>

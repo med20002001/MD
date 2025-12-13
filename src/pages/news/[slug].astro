@@ -1,22 +1,45 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import { getEntry } from 'astro:content';
+import Layout from "../../layouts/Layout.astro";
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
 import { Image } from 'astro:assets';
 
-const article = await getEntry('articles', 'nasrine-kheltent');
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const articles = await getCollection('articles');
+  
+  return articles.map((article: CollectionEntry<'articles'>) => ({
+    params: { slug: article.slug },
+    props: { article },
+  }));
+}
+
+interface Props {
+  article: CollectionEntry<'articles'>;
+}
+
+const { article } = Astro.props;
 
 if (!article) {
-  return Astro.redirect('/404');
+  return Astro.redirect("/news");
 }
 
 const { title, date, image, imageAlt } = article.data;
 const { Content } = await article.render();
 ---
 
-
 <Layout title={title}>
   <section class="bg-[#f0f4f8] py-16">
     <div class="max-w-4xl mx-auto px-4 lg:px-8">
+      <!-- Lien retour -->
+      <a
+        href="/news"
+        class="text-sm font-medium text-gray-600 hover:text-gray-900 mb-6 inline-block"
+      >
+        ← Retour aux articles
+      </a>
+
       <div class="bg-white rounded-lg shadow-sm p-10">
         <!-- Image principale centrée -->
         <div class="flex justify-center mb-8">
@@ -24,23 +47,21 @@ const { Content } = await article.render();
             src={image}
             alt={imageAlt}
             width={256}
+            height={256}
             class="w-64 h-auto object-cover"
             loading="lazy"
           />
         </div>
-
 
         <!-- Titre de l'article -->
         <h1 class="text-2xl font-bold text-gray-900 mb-2">
           {title}
         </h1>
 
-
         <!-- Date de publication -->
         <p class="text-gray-600 text-sm mb-6">
           {date}
         </p>
-
 
         <!-- Contenu de l'article -->
         <div class="text-gray-900 text-sm leading-relaxed space-y-4 prose prose-sm max-w-none prose-p:my-4 prose-strong:font-bold prose-strong:text-gray-900">

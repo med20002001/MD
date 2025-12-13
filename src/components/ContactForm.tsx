@@ -2,14 +2,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { contactFormSchema, type ContactFormData } from '../lib/schemas/contact.schema';
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from './ui/form';
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage, } from './ui/form';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 import { Button } from './ui/button';
@@ -69,7 +62,6 @@ export default function ContactForm() {
       setIsSubmitting(false);
     }
   };
-
   return (
     <div className="w-full">
       <Form {...form}>
@@ -78,7 +70,7 @@ export default function ContactForm() {
           <FormField
             control={form.control}
             name="nom"
-            render={({ field }) => (
+            render={({ field, fieldState }) => (
               <FormItem>
                 <FormLabel className="text-sm font-semibold text-gray-900">
                   Nom complet <span className="text-red-500">*</span>
@@ -88,7 +80,10 @@ export default function ContactForm() {
                     placeholder="Votre nom"
                     {...field}
                     required
-                    className="border-gray-300 focus:border-green-500 focus:ring-green-500"
+                    className={[
+                      "border-gray-300 focus:border-green-500 focus:ring-green-500 resize-none",
+                      fieldState.invalid && "border-red-500 focus:border-red-500 focus:ring-red-500"
+                    ].filter(Boolean).join(" ")}
                   />
                 </FormControl>
                 <FormMessage className="text-red-600 text-xs mt-1" />
@@ -99,7 +94,7 @@ export default function ContactForm() {
           <FormField
             control={form.control}
             name="email"
-            render={({ field }) => (
+            render={({ field, fieldState }) => (
               <FormItem>
                 <FormLabel className="text-sm font-semibold text-gray-900">
                   Email <span className="text-red-500">*</span>
@@ -110,19 +105,21 @@ export default function ContactForm() {
                     placeholder="example@gmail.com"
                     {...field}
                     required
-                    className="border-gray-300 focus:border-green-500 focus:ring-green-500"
+                    className={[
+                      "border-gray-300 focus:border-green-500 focus:ring-green-500 resize-none",
+                      fieldState.invalid && "border-red-500 focus:border-red-500 focus:ring-red-500"
+                    ].filter(Boolean).join(" ")}
                   />
                 </FormControl>
                 <FormMessage className="text-red-600 text-xs mt-1" />
               </FormItem>
             )}
           />
-
           {/* Sujet */}
           <FormField
             control={form.control}
             name="sujet"
-            render={({ field }) => (
+            render={({ field, fieldState }) => (
               <FormItem>
                 <FormLabel className="text-sm font-semibold text-gray-900">
                   Sujet <span className="text-red-500">*</span>
@@ -132,19 +129,21 @@ export default function ContactForm() {
                     placeholder="Sujet"
                     {...field}
                     required
-                    className="border-gray-300 focus:border-green-500 focus:ring-green-500"
+                    className={[
+                      "border-gray-300 focus:border-green-500 focus:ring-green-500 resize-none",
+                      fieldState.invalid && "border-red-500 focus:border-red-500 focus:ring-red-500"
+                    ].filter(Boolean).join(" ")}
                   />
                 </FormControl>
                 <FormMessage className="text-red-600 text-xs mt-1" />
               </FormItem>
             )}
           />
-
           {/* Message */}
           <FormField
             control={form.control}
             name="message"
-            render={({ field }) => (
+            render={({ field, fieldState }) => (
               <FormItem>
                 <FormLabel className="text-sm font-semibold text-gray-900">
                   Message <span className="text-red-500">*</span>
@@ -155,14 +154,16 @@ export default function ContactForm() {
                     rows={5}
                     {...field}
                     required
-                    className="border-gray-300 focus:border-green-500 focus:ring-green-500 resize-none"
+                    className={[
+                      "border-gray-300 focus:border-green-500 focus:ring-green-500",
+                      fieldState.invalid && "border-red-500 focus:border-red-500 focus:ring-red-500"
+                    ].filter(Boolean).join(" ")}
                   />
                 </FormControl>
                 <FormMessage className="text-red-600 text-xs mt-1" />
               </FormItem>
             )}
           />
-
           {/* Bouton Envoyer */}
           <div className="flex justify-start">
             <Button
@@ -180,7 +181,6 @@ export default function ContactForm() {
               )}
             </Button>
           </div>
-
           {/* Message de statut - Design simple sans couleur */}
           {submitStatus.type && (
             <div className="border border-gray-300 rounded-lg p-4 bg-white shadow-sm animate-in fade-in slide-in-from-top-2 duration-300">

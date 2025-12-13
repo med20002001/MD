@@ -8,9 +8,7 @@ type Event = CollectionEntry<'events'> & {
   slug: string;
   href: string;
 }; 
-
 const allEvents = await getCollection('events');
-
 const events: Event[] = allEvents.map((event: CollectionEntry<'events'>): Event => ({
   ...event,
   slug: event.slug,
@@ -64,17 +62,12 @@ const calendarEvents = upcomingEvents.map((e: Event) => ({
   href: e.href,
 }));
 ---
-
 <Layout title="Agenda - Tous les événements">
   <main class="bg-white min-h-screen">
-    
-    <!-- Container React qui gère tout -->
     <AgendaContainer 
       client:load
       upcomingEvents={upcomingEventsData}
-      pastEvents={pastEventsData}
-     
+      pastEvents={pastEventsData}    
     />
-
   </main>
 </Layout>

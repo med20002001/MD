@@ -101,11 +101,6 @@ MDN23 - Moroccan Diaspora Networking 23
         </head>
         <body style="margin: 0; padding: 20px; font-family: Arial, sans-serif; background-color: #ffffff;">
           <div style="max-width: 600px; margin: 0 auto;">
-            
-            <h2 style="margin: 0 0 20px 0; font-size: 20px; font-weight: normal; border-bottom: 1px solid #dddddd; padding-bottom: 10px;">
-              Confirmation de reception
-            </h2>
-
             <p style="margin: 0 0 15px 0; line-height: 1.6;">
               Bonjour ${data.nom},
             </p>

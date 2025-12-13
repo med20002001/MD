@@ -20,7 +20,7 @@ country: "Pays-Bas"
 googleMapsUrl: "https://www.google.com/maps?q=Théâtre+De+Lieve+Vrouw+Amersfoort"
 ---
 
-# Hamid Bouchnak & L'Orchestre Andalou d'Amsterdam
+### Hamid Bouchnak & L'Orchestre Andalou d'Amsterdam
 
 La star marocaine et l’orchestre donnent une nouvelle dimension à la musique andalouse et au raï.
 Lors de ce concert, l’Orchestra Andalou d’Amsterdam s’engage dans une nouvelle collaboration spéciale. Le musicien populaire Hamid Bouchnak vient spécialement du Maroc pour ce concert, à l’initiative de Stichting ArteGanza / Musica Mundo. Ensemble, ils interpréteront des morceaux de son ancien et nouveau répertoire, dans lesquels le raï de Bouchnak prend une nouvelle dimension grâce à l’approche de l’OAA.
@@ -30,5 +30,5 @@ Hamid Bouchnak est installé à Marrakech depuis 2013, où il transmet son expé
 
 Le concert avec l’Orchestra Andalou d’Amsterdam est une réunion chaleureuse au cours de laquelle il se rapproche du cœur de son public !
 
-# DES MOMENTS MUSICAUX INCOMPARABLES
+### DES MOMENTS MUSICAUX INCOMPARABLES
 La Fondation ArteGanza (www.arteganza.nl)croit au pouvoir des arts de la scène dans le monde en tant que moyen de relier des personnes de cultures différentes. Les concerts de la série Musica Mundo et du festival Musica Mundo vous feront découvrir la puissance et la beauté de la diversité culturelle. Un cadeau réconfortant pour la ville !
